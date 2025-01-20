@@ -10,6 +10,8 @@
   },
   "type": "module",
   "dependencies": {
+    "@tanstack/react-query": "^5.64.2",
+    "axios": "^1.7.9",
     "lila-stockfish-web": "^0.0.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

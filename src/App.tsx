@@ -1,7 +1,22 @@
 import React, { useEffect } from "react";
 import { setupStockfish } from "./ads/main";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
+const getPlayerGames = (nickname: string) => {
+  return axios
+    .get(`https://api.chess.com/pub/player/${nickname}/games/2025/01`)
+    .then((res) => res.data);
+};
 
 export const App: React.FC = () => {
+  const { data: profile } = useQuery({
+    queryKey: ["asd"],
+    queryFn: () => getPlayerGames("NikitosikSu"),
+  });
+
+  console.log(profile);
+
   useEffect(() => {
     setupStockfish()
       .then((engine) => {
